@@ -1,0 +1,7 @@
+C:\Users\Filipe\Desktop\SI\2º período\POO\TI.Desempenho.Esportivo\bin\Debug\TI.Desempenho.Esportivo.exe.config
+C:\Users\Filipe\Desktop\SI\2º período\POO\TI.Desempenho.Esportivo\bin\Debug\TI.Desempenho.Esportivo.exe
+C:\Users\Filipe\Desktop\SI\2º período\POO\TI.Desempenho.Esportivo\bin\Debug\TI.Desempenho.Esportivo.pdb
+C:\Users\Filipe\Desktop\SI\2º período\POO\TI.Desempenho.Esportivo\obj\Debug\TI.Desempenho.Esportivo.csprojAssemblyReference.cache
+C:\Users\Filipe\Desktop\SI\2º período\POO\TI.Desempenho.Esportivo\obj\Debug\TI.Desempenho.Esportivo.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\Desktop\SI\2º período\POO\TI.Desempenho.Esportivo\obj\Debug\TI.Desempenho.Esportivo.exe
+C:\Users\Filipe\Desktop\SI\2º período\POO\TI.Desempenho.Esportivo\obj\Debug\TI.Desempenho.Esportivo.pdb
