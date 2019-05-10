@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TI.Desempenho.Esportivo
+namespace TI.Desempenho.Esportivo.Service
 {
     class Jogador
     {
