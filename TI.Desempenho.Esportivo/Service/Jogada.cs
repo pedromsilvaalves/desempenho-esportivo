@@ -48,11 +48,15 @@ namespace TI.Desempenho.Esportivo.Service
 
         public override string ToString()
         {
-            var result = String.Format("Jogada: {0}", this.jogada.nomJogada);
+            var result = String.Format("Jogada {0} valendo {1} pontos", this.jogada.nomJogada, this.calcPontosJogada());
 
             return result;
         }
 
+        public double calcPontosJogada()
+        {
+            return this.jogada.pontosJogada * this.jogada.multiplicador;
+        }
         #endregion
     }
 }

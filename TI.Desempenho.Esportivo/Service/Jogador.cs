@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TI.Desempenho.Esportivo.Factory;
 
 namespace TI.Desempenho.Esportivo.Service
 {
-    class Jogador
+    public class Jogador
     {
         #region Membros
+
+        private JogadaFactory jogadaFactory;
 
         private string _nome;
         private Posicao _posicao;
         private int _numCamisa;
+        private List<Jogada> _jogadas;
 
         #endregion
 
@@ -73,6 +77,15 @@ namespace TI.Desempenho.Esportivo.Service
         }
 
         #endregion
+
+        public bool AddJogada(int codJogada)
+        {
+            var numJogadasAnterior = this._jogadas.Count;
+            this._jogadas.Add(jogadaFactory.CriarJogada(codJogada, this.posicao.nomPosicao));
+            if (!(numJogadasAnterior == this._jogadas.Count))
+                return true;
+            return false;
+        }
 
     }
 }

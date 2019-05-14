@@ -8,42 +8,177 @@ using TI.Desempenho.Esportivo.Service;
 
 namespace TI.Desempenho.Esportivo.Factory
 {
-    public static class JogadaFactory
+    public class JogadaFactory
     {
+        #region Membros
 
-        //{ 1, "Jogo sem sofrer gol" },
-        //{ 2, "Defesa dificil" },
-        //{ 3, "Gol contra" },
-        //{ 4, "Cartão Amarelo" },
-        //{ 5, "Falta cometida" },
-        //{ 6, "Gol" },
-        //{ 7, "Finalização na trave" },
-        //{ 8, "Finalização para fora" },
-        //{ 9, "Pênalti perdido" },
-        //{ 10, "Passe errado" },
-        //{ 11, "Defesa de pênalti" },
-        //{ 12, "Roubada de bola" },
-        //{ 13, "Cartão vermelho" },
-        //{ 14, "Gol sofrido" },
-        //{ 15, "Assistência" },
-        //{ 16, "Finalização defendida" },
-        //{ 17, "Falta sofrida" },
-        //{ 18, "Impedimento" }
-
-        private static IEnumerable<JogadaModel> jogadas = new List<JogadaModel>()
+        private Dictionary<int,JogadaModel> jogadas = new Dictionary<int, JogadaModel>()
         {
-            new JogadaModel()
-            {
-                idJogada = 1,
-                nomJogada = "Jogo sem sofrer gol",
-                pntJogada = 1
+            { 1, new JogadaModel()
+                {
+                    nomJogada = "Jogo sem sofrer gol",
+                    pontosJogada = 7
+                }
             },
+            { 2, new JogadaModel()
+                {
+                    nomJogada = "Defesa dificil",
+                    pontosJogada = 3
+                }
+            },
+            { 3, new JogadaModel()
+                {
+                    nomJogada = "Gol contra",
+                    pontosJogada = 1
+                }
+            },
+            { 4, new JogadaModel()
+                {
+                    nomJogada = "Cartão Amarelo",
+                    pontosJogada = 1
+                }
+            },
+            { 5, new JogadaModel()
+                {
+                    nomJogada = "Falta cometida",
+                    pontosJogada = 1
+                }
+            },
+            { 6, new JogadaModel()
+                {
+                    nomJogada = "Gol",
+                    pontosJogada = 1
+                }
+            },
+            { 7, new JogadaModel()
+                {
+                    nomJogada = "Finalização na trave",
+                    pontosJogada = 1
+                }
+            },
+            { 8, new JogadaModel()
+                {
+                    nomJogada = "Finalização para fora",
+                    pontosJogada = 1
+                }
+            },
+            { 9, new JogadaModel()
+                {
+                    nomJogada = "Pênalti perdido",
+                    pontosJogada = 1
+                }
+            },
+            { 10, new JogadaModel()
+                {
+                    nomJogada = "Passe errado",
+                    pontosJogada = 1
+                }
+            },
+            { 11, new JogadaModel()
+                {
+                    nomJogada = "Defesa de pênalti",
+                    pontosJogada = 1
+                }
+            },
+            { 12, new JogadaModel()
+                {
+                    nomJogada = "Roubada de bola",
+                    pontosJogada = 1
+                }
+            },
+            { 13, new JogadaModel()
+                {
+                    nomJogada = "Cartão vermelho",
+                    pontosJogada = 1
+                }
+            },
+            { 14, new JogadaModel()
+                {
+                    nomJogada = "Gol sofrido",
+                    pontosJogada = 1
+                }
+            },
+            { 15, new JogadaModel()
+                {
+                    nomJogada = "Assistência",
+                    pontosJogada = 1
+                }
+            },
+            { 16, new JogadaModel()
+                {
+                    nomJogada = "Finalização defendida",
+                    pontosJogada = 1
+                }
+            },
+            { 17, new JogadaModel()
+                {
+                    nomJogada = "Falta sofrida",
+                    pontosJogada = 1
+                }
+            },
+            { 18, new JogadaModel()
+                {
+                    nomJogada = "Impedimento",
+                    pontosJogada = 1
+                }
+            }
         };
 
-        public static Jogada CriarJogada(int codJogada)
+        #endregion
+
+        #region Métodos
+
+        public Jogada CriarJogada(int codJogada, String posicao)
         {
-            // return new Jogada(jogadas.);
-            return new Jogada();
+            var jogada = jogadas[codJogada];
+            jogada.multiplicador = GetMultiplicador(codJogada, posicao);
+            return new Jogada(jogada);
         }
+
+        private float GetMultiplicador(int codJogada, String posicao)
+        {
+            switch (posicao)
+            {
+                case "Goleiro":
+                    switch (codJogada)
+                    {
+                        default:
+                            return 1F;
+                    }
+
+                case "Defesa":
+                    switch (codJogada)
+                    {
+                        default:
+                            return 1F;
+                    }
+
+                case "Meio Campo Defensivo":
+                    switch (codJogada)
+                    {
+                        default:
+                            return 1F;
+                    }
+
+                case "Meio Campo Ofensivo":
+                    switch (codJogada)
+                    {
+                        default:
+                            return 1F;
+                    }
+
+                case "Atacante":
+                    switch (codJogada)
+                    {
+                        default:
+                            return 1F;
+                    }
+
+                default:
+                    return 1F;
+            }
+        }
+
+        #endregion
     }
 }

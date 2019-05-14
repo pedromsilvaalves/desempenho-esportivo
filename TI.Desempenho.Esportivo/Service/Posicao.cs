@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TI.Desempenho.Esportivo.Service
 {
-    class Posicao
+    public class Posicao
     {
         #region Membros
 
@@ -81,7 +81,7 @@ namespace TI.Desempenho.Esportivo.Service
         {
             this.idPosicao = idPosicao;
             this.nomPosicao = posicoes[idPosicao];
-            ConfigCategoria(idPosicao);
+            ConfigCategoria(this.idPosicao);
         }
 
         public Posicao()
