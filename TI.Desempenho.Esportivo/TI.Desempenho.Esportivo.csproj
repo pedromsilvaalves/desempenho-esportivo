@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factory\JogadaFactory.cs" />
+    <Compile Include="Factory\PosicaoFactory.cs" />
     <Compile Include="Model\JogadaModel.cs" />
+    <Compile Include="Model\PosicaoModel.cs" />
     <Compile Include="Service\Jogada.cs" />
     <Compile Include="Service\Jogador.cs" />
     <Compile Include="Service\Posicao.cs" />
