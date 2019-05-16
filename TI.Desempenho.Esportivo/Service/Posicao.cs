@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TI.Desempenho.Esportivo.Model;
+using TI.Desempenho.Esportivo.Service.Interface;
 
-namespace TI.Desempenho.Esportivo.Service
+namespace TI.Desempenho.Esportivo.Service 
 {
-    public class Posicao
+    public class Posicao : InterfaceCriar
     {
         #region Membros
 
@@ -50,6 +51,12 @@ namespace TI.Desempenho.Esportivo.Service
         {
             return String.Format("Posicao {0} da categoria {1}", this.posicao.nomPosicao, this.posicao.categoria);
         }
+
+        public InterfaceCriar Criar()
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion
     }

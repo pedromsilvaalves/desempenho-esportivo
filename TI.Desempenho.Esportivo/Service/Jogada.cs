@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TI.Desempenho.Esportivo.Model;
+using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Service
 {
-    public class Jogada
+    public class Jogada : InterfaceCriar
     {
         #region Membros
 
@@ -56,6 +57,11 @@ namespace TI.Desempenho.Esportivo.Service
         public double calcPontosJogada()
         {
             return this.jogada.pontosJogada * this.jogada.multiplicador;
+        }
+
+        public InterfaceCriar Criar()
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
