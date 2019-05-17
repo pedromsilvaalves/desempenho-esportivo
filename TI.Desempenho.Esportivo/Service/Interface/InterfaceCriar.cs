@@ -8,6 +8,5 @@ namespace TI.Desempenho.Esportivo.Service.Interface
 {
     public interface InterfaceCriar
     {
-        InterfaceCriar Criar();
     }
 }

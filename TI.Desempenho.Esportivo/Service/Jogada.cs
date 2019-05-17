@@ -59,10 +59,6 @@ namespace TI.Desempenho.Esportivo.Service
             return this.jogada.pontosJogada * this.jogada.multiplicador;
         }
 
-        public InterfaceCriar Criar()
-        {
-            throw new NotImplementedException();
-        }
         #endregion
     }
 }

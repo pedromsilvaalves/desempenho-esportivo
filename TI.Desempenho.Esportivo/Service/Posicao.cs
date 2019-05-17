@@ -52,12 +52,6 @@ namespace TI.Desempenho.Esportivo.Service
             return String.Format("Posicao {0} da categoria {1}", this.posicao.nomPosicao, this.posicao.categoria);
         }
 
-        public InterfaceCriar Criar()
-        {
-            throw new NotImplementedException();
-        }
-
-
         #endregion
     }
 }

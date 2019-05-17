@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factory\Interface\InterfaceFactory.cs" />
+    <Compile Include="Factory\Interface\InterfaceCriarFactory.cs" />
     <Compile Include="Factory\JogadaFactory.cs" />
     <Compile Include="Factory\PosicaoFactory.cs" />
     <Compile Include="Model\JogadaModel.cs" />

@@ -7,7 +7,7 @@ using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Factory.Interface
 {
-    public interface InterfaceFactory
+    public interface InterfaceCriarFactory
     {
         InterfaceCriar Criar();
     }
