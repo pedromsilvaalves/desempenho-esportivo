@@ -12,16 +12,28 @@ namespace TI.Desempenho.Esportivo.Service
     {
         #region Membros
 
-        private JogadaModel _jogada;
+        private float _pontosJogada;
+        private String _nomJogada;
+        private float _multiplicador;
 
         #endregion
 
         #region Getters/Setters
 
-        public JogadaModel jogada
+        public float pontosJogada
         {
-            get { return _jogada; }
-            set { _jogada = value; }
+            get { return _pontosJogada; }
+            set { _pontosJogada = value; }
+        }
+        public float multiplicador
+        {
+            get { return _multiplicador; }
+            set { _multiplicador = value; }
+        }
+        public String nomJogada
+        {
+            get { return _nomJogada; }
+            set { _nomJogada = value; }
         }
 
         #endregion
@@ -30,7 +42,9 @@ namespace TI.Desempenho.Esportivo.Service
 
         private void init(JogadaModel jogada)
         {
-            this.jogada = jogada;
+            this.multiplicador = jogada.multiplicador;
+            this.nomJogada = jogada.nomJogada;
+            this.pontosJogada = jogada.pontosJogada;
         }
 
         public Jogada()
@@ -49,14 +63,14 @@ namespace TI.Desempenho.Esportivo.Service
 
         public override string ToString()
         {
-            var result = String.Format("Jogada {0} valendo {1} pontos", this.jogada.nomJogada, this.calcPontosJogada());
+            var result = String.Format("Jogada {0} valendo {1} pontos", this.nomJogada, this.calcPontosJogada());
 
             return result;
         }
 
         public double calcPontosJogada()
         {
-            return this.jogada.pontosJogada * this.jogada.multiplicador;
+            return this.pontosJogada * this.multiplicador;
         }
 
         #endregion

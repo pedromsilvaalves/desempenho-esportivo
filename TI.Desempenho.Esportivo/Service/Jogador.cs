@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TI.Desempenho.Esportivo.Factory;
+using TI.Desempenho.Esportivo.Model;
+using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Service
 {
@@ -11,7 +13,8 @@ namespace TI.Desempenho.Esportivo.Service
     {
         #region Membros
 
-        private JogadaFactory jogadaFactory;
+        private JogadaFactory _jogadaFactory;
+        private PosicaoFactory _posicaoFactory;
 
         private string _nome;
         private Posicao _posicao;
@@ -61,8 +64,11 @@ namespace TI.Desempenho.Esportivo.Service
 
         private void init(String nome, int posicao, int camisa)
         {
+            _jogadaFactory = new JogadaFactory();
+            _posicaoFactory = new PosicaoFactory();
+
             this.nome = nome;
-            this.posicao = new Posicao(posicao);
+            this.posicao = (Posicao)_posicaoFactory.Criar(posicao);
             this.camisa = camisa;
         }
 
@@ -81,7 +87,7 @@ namespace TI.Desempenho.Esportivo.Service
         public bool AddJogada(int codJogada)
         {
             var numJogadasAnterior = this._jogadas.Count;
-            this._jogadas.Add(jogadaFactory.CriarJogada(codJogada, this.posicao.nomPosicao));
+            this._jogadas.Add((Jogada)_jogadaFactory.Criar(codJogada, this.posicao.nomPosicao));
             if (!(numJogadasAnterior == this._jogadas.Count))
                 return true;
             return false;

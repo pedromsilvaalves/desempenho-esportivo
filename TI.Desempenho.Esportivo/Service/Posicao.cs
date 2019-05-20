@@ -12,17 +12,24 @@ namespace TI.Desempenho.Esportivo.Service
     {
         #region Membros
 
-        private PosicaoModel _posicao;
+        private String _nomPosicao;
+        private String _categoria;
 
         #endregion
 
         #region Getters/Setters
 
-        public PosicaoModel posicao
+        public String nomPosicao
         {
-            get { return _posicao; }
-            set { _posicao = value; }
+            get { return _nomPosicao; }
+            set { _nomPosicao = value; }
         }
+        public String categoria
+        {
+            get { return _categoria; }
+            set { _categoria = value; }
+        }
+
 
         #endregion
 
@@ -30,7 +37,8 @@ namespace TI.Desempenho.Esportivo.Service
 
         private void init(PosicaoModel posicaoModel)
         {
-            this.posicao = posicaoModel;
+            this.nomPosicao = posicaoModel.nomPosicao;
+            this.categoria = posicaoModel.categoria;
         }
 
         public Posicao()
@@ -49,7 +57,7 @@ namespace TI.Desempenho.Esportivo.Service
 
         public override string ToString()
         {
-            return String.Format("Posicao {0} da categoria {1}", this.posicao.nomPosicao, this.posicao.categoria);
+            return String.Format("Posicao {0} da categoria {1}", this.nomPosicao, this.categoria);
         }
 
         #endregion
