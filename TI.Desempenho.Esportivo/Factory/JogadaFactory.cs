@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TI.Desempenho.Esportivo.Factory.Interface;
 using TI.Desempenho.Esportivo.Model;
 using TI.Desempenho.Esportivo.Service;
+using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Factory
 {
-    public class JogadaFactory
+    public class JogadaFactory : ICriarFactory
     {
         #region Membros
 
@@ -128,7 +130,14 @@ namespace TI.Desempenho.Esportivo.Factory
 
         #region Métodos
 
-        public Jogada CriarJogada(int codJogada, String posicao)
+        public ICriavel Criar(int codJogada)
+        {
+            var jogada = jogadas[codJogada];
+            jogada.multiplicador = GetMultiplicador(codJogada, "Default");
+            return new Jogada(jogada);
+        }
+
+        public ICriavel Criar(int codJogada, String posicao)
         {
             var jogada = jogadas[codJogada];
             jogada.multiplicador = GetMultiplicador(codJogada, posicao);

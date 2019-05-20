@@ -8,7 +8,7 @@ using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Service 
 {
-    public class Posicao : InterfaceCriar
+    public class Posicao : ICriavel
     {
         #region Membros
 

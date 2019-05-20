@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TI.Desempenho.Esportivo.Service.Interface
 {
-    public interface InterfaceCriar
+    public interface ICriavel
     {
     }
 }

@@ -7,8 +7,9 @@ using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Factory.Interface
 {
-    public interface InterfaceCriarFactory
+    public interface ICriarFactory
     {
-        InterfaceCriar Criar();
+        ICriavel Criar(int codCriavel);
+        ICriavel Criar(int codCriavel, String nomCriavel);
     }
 }

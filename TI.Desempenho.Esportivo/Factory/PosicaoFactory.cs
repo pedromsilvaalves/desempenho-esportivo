@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TI.Desempenho.Esportivo.Factory.Interface;
 using TI.Desempenho.Esportivo.Model;
 using TI.Desempenho.Esportivo.Service;
+using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Factory
 {
-    public class PosicaoFactory
+    public class PosicaoFactory : ICriarFactory
     {
         #region Membros
 
@@ -50,7 +52,12 @@ namespace TI.Desempenho.Esportivo.Factory
 
         #region Métodos
 
-        public Posicao CriarPosicao(int codPosicao)
+        public ICriavel Criar(int codPosicao)
+        {
+            return new Posicao(posicoes[codPosicao]);
+        }
+
+        public ICriavel Criar(int codPosicao, string nomPosicao)
         {
             return new Posicao(posicoes[codPosicao]);
         }
