@@ -88,7 +88,7 @@ namespace TI.Desempenho.Esportivo.Service
             return false;
         }
 
-        public double pontosToais()
+        public double pontosTotais()
         {
             double totalPontos = 0;
             foreach (var jogada in _jogadas)
