@@ -22,7 +22,7 @@ namespace TI.Desempenho.Esportivo.Service
         public String nome
         {
             get { return _nome; }
-            set
+            private set
             {
                 if (value.Length != 0)
                     _nome = value;
@@ -49,11 +49,6 @@ namespace TI.Desempenho.Esportivo.Service
         {
             this.nome = nome;
             this.jogadores = new Jogador[44];
-        }
-
-        public Time()
-        {
-            this.init("Unidos dos Rios do Leste do Conglomerado Ingles Team EXE");
         }
 
         public Time(String nome)
