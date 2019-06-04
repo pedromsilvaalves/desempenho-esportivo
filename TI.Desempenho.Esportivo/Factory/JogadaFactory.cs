@@ -10,7 +10,7 @@ using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Factory
 {
-    public class JogadaFactory : ICriarFactory
+    public class JogadaFactory : IJogadaFactory
     {
         #region Membros
 
@@ -132,22 +132,11 @@ namespace TI.Desempenho.Esportivo.Factory
 
         #region Métodos
 
-        /// <summary>
-        /// Default: categoria Defensivo
-        /// </summary>
-        /// <param name="codJogada"></param>
-        /// <returns></returns>
-        public ICriavel Criar(int codJogada)
-        {
-            var jogada = jogadas[codJogada];
-            jogada.multiplicador = GetMultiplicador(codJogada, "Defensivo");
-            return new Jogada(jogada);
-        }
-
-        public ICriavel Criar(int codJogada, String categoria)
+        public ICriavel Criar(int codJogada, String categoria, int idPartida)
         {
             var jogada = jogadas[codJogada];
             jogada.multiplicador = GetMultiplicador(codJogada, categoria);
+            jogada.idPartida = idPartida;
             return new Jogada(jogada);
         }
 

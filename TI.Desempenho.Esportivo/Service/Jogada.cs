@@ -15,6 +15,7 @@ namespace TI.Desempenho.Esportivo.Service
         private float _pontosJogada;
         private String _nomJogada;
         private float _multiplicador;
+        private int _idPartida;
 
         #endregion
 
@@ -35,6 +36,11 @@ namespace TI.Desempenho.Esportivo.Service
             get { return _nomJogada; }
             private set { _nomJogada = value; }
         }
+        public int idPartida
+        {
+            get { return _idPartida; }
+            private set { _idPartida = value; }
+        }
 
         #endregion
 
@@ -45,6 +51,7 @@ namespace TI.Desempenho.Esportivo.Service
             this.multiplicador = jogada.multiplicador;
             this.nomJogada = jogada.nomJogada;
             this.pontosJogada = jogada.pontosJogada;
+            this.idPartida = jogada.idPartida;
         }
 
         #endregion
@@ -53,7 +60,7 @@ namespace TI.Desempenho.Esportivo.Service
 
         public override string ToString()
         {
-            var result = String.Format("Jogada {0} valendo {1} pontos", this.nomJogada, this.calcPontosJogada());
+            var result = String.Format("Jogada {0} valendo {1} pontos na partida {2}", this.nomJogada, this.calcPontosJogada(), this.idPartida);
 
             return result;
         }

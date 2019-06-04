@@ -79,10 +79,10 @@ namespace TI.Desempenho.Esportivo.Service
 
         #endregion
 
-        public bool AddJogada(int codJogada)
+        public bool AddJogada(int codJogada, int idPartida)
         {
             var numJogadasAnterior = this._jogadas.Count;
-            this._jogadas.Add((Jogada)_jogadaFactory.Criar(codJogada, this.posicao.categoria));
+            this._jogadas.Add((Jogada)_jogadaFactory.Criar(codJogada, this.posicao.categoria, idPartida));
             if (!(numJogadasAnterior == this._jogadas.Count))
                 return true;
             return false;

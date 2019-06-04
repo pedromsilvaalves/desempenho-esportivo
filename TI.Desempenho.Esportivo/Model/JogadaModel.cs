@@ -11,5 +11,6 @@ namespace TI.Desempenho.Esportivo.Model
         public String nomJogada { get; set; }
         public float pontosJogada { get; set; }
         public float multiplicador { get; set; }
+        public int idPartida { get; set; }
     }
 }

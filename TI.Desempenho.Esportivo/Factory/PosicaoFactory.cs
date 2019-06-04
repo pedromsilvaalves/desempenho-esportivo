@@ -10,7 +10,7 @@ using TI.Desempenho.Esportivo.Service.Interface;
 
 namespace TI.Desempenho.Esportivo.Factory
 {
-    public class PosicaoFactory : ICriarFactory
+    public class PosicaoFactory : IPosicaoFactory
     {
         #region Membros
 
@@ -53,11 +53,6 @@ namespace TI.Desempenho.Esportivo.Factory
         #region Métodos
 
         public ICriavel Criar(int codPosicao)
-        {
-            return new Posicao(posicoes[codPosicao]);
-        }
-
-        public ICriavel Criar(int codPosicao, string nomPosicao)
         {
             return new Posicao(posicoes[codPosicao]);
         }
