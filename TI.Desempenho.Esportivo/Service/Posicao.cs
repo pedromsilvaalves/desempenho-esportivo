@@ -22,12 +22,12 @@ namespace TI.Desempenho.Esportivo.Service
         public String nomPosicao
         {
             get { return _nomPosicao; }
-            set { _nomPosicao = value; }
+            private set { _nomPosicao = value; }
         }
         public String categoria
         {
             get { return _categoria; }
-            set { _categoria = value; }
+            private set { _categoria = value; }
         }
 
 
@@ -35,20 +35,10 @@ namespace TI.Desempenho.Esportivo.Service
 
         #region Construtor
 
-        private void init(PosicaoModel posicaoModel)
+        public Posicao(PosicaoModel posicaoModel)
         {
             this.nomPosicao = posicaoModel.nomPosicao;
             this.categoria = posicaoModel.categoria;
-        }
-
-        public Posicao()
-        {
-            this.init(new PosicaoModel());
-        }
-
-        public Posicao(PosicaoModel posicaoModel)
-        {
-            this.init(posicaoModel);
         }
 
         #endregion

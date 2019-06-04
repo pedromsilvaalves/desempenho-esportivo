@@ -23,38 +23,28 @@ namespace TI.Desempenho.Esportivo.Service
         public float pontosJogada
         {
             get { return _pontosJogada; }
-            set { _pontosJogada = value; }
+            private set { _pontosJogada = value; }
         }
         public float multiplicador
         {
             get { return _multiplicador; }
-            set { _multiplicador = value; }
+            private set { _multiplicador = value; }
         }
         public String nomJogada
         {
             get { return _nomJogada; }
-            set { _nomJogada = value; }
+            private set { _nomJogada = value; }
         }
 
         #endregion
 
         #region Construtor
 
-        private void init(JogadaModel jogada)
+        public Jogada(JogadaModel jogada)
         {
             this.multiplicador = jogada.multiplicador;
             this.nomJogada = jogada.nomJogada;
             this.pontosJogada = jogada.pontosJogada;
-        }
-
-        public Jogada()
-        {
-            this.init(new JogadaModel());
-        }
-
-        public Jogada(JogadaModel jogada)
-        {
-            this.init(jogada);
         }
 
         #endregion

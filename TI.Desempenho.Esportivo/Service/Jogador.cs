@@ -28,7 +28,7 @@ namespace TI.Desempenho.Esportivo.Service
         public string nome
         {
             get { return _nome; }
-            set
+            private set
             {
                 if (value.Length != 0)
                     _nome = value;
@@ -40,13 +40,13 @@ namespace TI.Desempenho.Esportivo.Service
         public Posicao posicao
         {
             get { return _posicao; }
-            set { _posicao = value; }
+            private set { _posicao = value; }
         }
 
         public int camisa
         {
             get { return _numCamisa; }
-            set
+            private set
             {
                 if (value > 0)
                     _numCamisa = value;
@@ -72,11 +72,6 @@ namespace TI.Desempenho.Esportivo.Service
             this.camisa = camisa;
         }
 
-        public Jogador()
-        {
-            this.init("Ricardo Jorge de Assis Jgdr EXE", 3, 21);
-        }
-
         public Jogador(String nome, int posicao, int camisa)
         {
             this.init(nome, posicao, camisa);
@@ -87,11 +82,10 @@ namespace TI.Desempenho.Esportivo.Service
         public bool AddJogada(int codJogada)
         {
             var numJogadasAnterior = this._jogadas.Count;
-            this._jogadas.Add((Jogada)_jogadaFactory.Criar(codJogada, this.posicao.nomPosicao));
+            this._jogadas.Add((Jogada)_jogadaFactory.Criar(codJogada, this.posicao.categoria));
             if (!(numJogadasAnterior == this._jogadas.Count))
                 return true;
             return false;
         }
-
     }
 }
