@@ -87,5 +87,15 @@ namespace TI.Desempenho.Esportivo.Service
                 return true;
             return false;
         }
+
+        public double pontosTotais()
+        {
+            double totalPontos = 0;
+            foreach (var jogada in _jogadas)
+            {
+                totalPontos += jogada.calcPontosJogada();
+            }
+            return totalPontos;
+        }
     }
 }
