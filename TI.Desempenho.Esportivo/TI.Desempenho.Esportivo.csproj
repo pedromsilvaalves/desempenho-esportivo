@@ -47,6 +47,7 @@
     <Compile Include="Factory\Interface\IPosicaoFactory.cs" />
     <Compile Include="Factory\JogadaFactory.cs" />
     <Compile Include="Factory\PosicaoFactory.cs" />
+    <Compile Include="Model\AvaliacaoJogadorModel.cs" />
     <Compile Include="Model\JogadaModel.cs" />
     <Compile Include="Model\PosicaoModel.cs" />
     <Compile Include="Service\Interface\ICriavel.cs" />
