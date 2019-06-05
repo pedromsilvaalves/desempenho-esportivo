@@ -108,5 +108,25 @@ namespace TI.Desempenho.Esportivo.Service
             }
             return totalPontos;
         }
+
+        /// <summary>
+        /// Retorna um Dictionary int,double em que a key é o id da partida e o value são os pontos
+        /// </summary>
+        /// <returns>Dictionary int,double - key = idPartida, value = pontosTotais</returns>
+        public Dictionary<int,double> relatorioPontosPorPartida()
+        {
+            var relatorio = new Dictionary<int, double>();
+            foreach(var jogada in _jogadas)
+            {
+                if (relatorio.ContainsKey(jogada.idPartida)) {
+                    var pontos = relatorio[jogada.idPartida] + jogada.calcPontosJogada();
+                    relatorio.Remove(jogada.idPartida);
+                    relatorio.Add(jogada.idPartida, pontos);
+                }
+                else
+                    relatorio.Add(jogada.idPartida, jogada.calcPontosJogada());
+            }
+            return relatorio;
+        }
     }
 }
