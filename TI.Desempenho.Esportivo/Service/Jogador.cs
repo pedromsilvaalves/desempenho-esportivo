@@ -88,6 +88,17 @@ namespace TI.Desempenho.Esportivo.Service
             return false;
         }
 
+        public double pontosPartida(int idPartida)
+        {
+            double totalPontos = 0;
+            foreach (var jogada in _jogadas)
+            {
+                if(jogada.idPartida == idPartida)
+                    totalPontos += jogada.calcPontosJogada();
+            }
+            return totalPontos;
+        }
+
         public double pontosTotais()
         {
             double totalPontos = 0;
