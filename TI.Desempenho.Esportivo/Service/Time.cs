@@ -22,12 +22,13 @@ namespace TI.Desempenho.Esportivo.Service
         public String nome
         {
             get { return _nome; }
-            private set
+            set
             {
                 if (value.Length != 0)
                     _nome = value;
                 else
-                    _nome = "Time Juntados pelas Forcas do Acaso";
+                    throw new ArgumentException(String.Format("{0} não é um nome de time válido", _nome));
+
             }
         }
 
@@ -38,6 +39,8 @@ namespace TI.Desempenho.Esportivo.Service
             {
                 if (value.Length == 44)
                     _jogadores = value;
+                else
+                    throw new ArgumentException(String.Format("{0} quantidade de jogadores inválida", _jogadores));
             }
         }
 

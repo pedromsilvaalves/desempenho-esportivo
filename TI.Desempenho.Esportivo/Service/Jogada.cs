@@ -34,12 +34,24 @@ namespace TI.Desempenho.Esportivo.Service
         public String nomJogada
         {
             get { return _nomJogada; }
-            private set { _nomJogada = value; }
+            private set
+            {
+                if (value.Length != 0)
+                    _nomJogada = value;
+                else
+                    throw new ArgumentException(String.Format("{0} não é um nome de jogada válido", _nomJogada));
+            }
         }
         public int idPartida
         {
             get { return _idPartida; }
-            private set { _idPartida = value; }
+            private set
+            {
+                if (value != 0)
+                    _idPartida = value;
+                else
+                    throw new ArgumentException(String.Format("{0} não é um número de partida válido", _idPartida));
+            }
         }
 
         #endregion

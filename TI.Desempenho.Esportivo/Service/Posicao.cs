@@ -22,12 +22,24 @@ namespace TI.Desempenho.Esportivo.Service
         public String nomPosicao
         {
             get { return _nomPosicao; }
-            private set { _nomPosicao = value; }
+            private set
+            {
+                if (value.Length != 0)
+                    _nomPosicao = value;
+                else
+                    throw new ArgumentException(String.Format("{0} não é um nome de posição válido", _nomPosicao));
+            }
         }
         public String categoria
         {
             get { return _categoria; }
-            private set { _categoria = value; }
+            private set
+            {
+                if (value.Length != 0)
+                    _categoria = value;
+                else
+                    throw new ArgumentException(String.Format("{0} não é um nome de categoria válido", _categoria));
+            }
         }
 
 

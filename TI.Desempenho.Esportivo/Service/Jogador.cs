@@ -28,12 +28,13 @@ namespace TI.Desempenho.Esportivo.Service
         public string nome
         {
             get { return _nome; }
-            private set
+            set
             {
                 if (value.Length != 0)
                     _nome = value;
                 else
-                    _nome = "Joaozin Perna de Pau";
+                    throw new ArgumentException(String.Format("{0} não é um nome de jogador válido", _nome));
+                                      
             }
         }
 
@@ -48,12 +49,12 @@ namespace TI.Desempenho.Esportivo.Service
             get { return _numCamisa; }
             private set
             {
-                if (value > 0)
+                if (value > 0 && value< 100)
                     _numCamisa = value;
                 else
                 {
                     Random rnd = new Random();
-                    _numCamisa = rnd.Next(1, 200);
+                    _numCamisa = rnd.Next(1, 100);
                 }
             }
         }
