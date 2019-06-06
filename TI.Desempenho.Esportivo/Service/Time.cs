@@ -23,7 +23,7 @@ namespace TI.Desempenho.Esportivo.Service
         public String nome
         {
             get { return _nome; }
-            private set
+             set
             {
                 if (value.Length != 0)
                     _nome = value;
@@ -87,6 +87,8 @@ namespace TI.Desempenho.Esportivo.Service
                 return PontosTotaisTime() / numJogador;
             return 0;
         }
+
+        
 
         public List<AvaliacaoJogadorModel> RelatorioJogadores()
         {

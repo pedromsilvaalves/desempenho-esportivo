@@ -56,11 +56,12 @@ namespace TI.Desempenho.Esportivo.Service
 
         #endregion
 
+
         #region Metodos
 
         public override string ToString()
         {
-            var result = String.Format("Jogada {0} valendo {1} pontos na partida {2}", this.nomJogada, this.calcPontosJogada(), this.idPartida);
+            var result = String.Format("Jogada {0} valendo {1} pontos na partida {2}", this.nomJogada, this.calcPontosJogada().ToString("F2"), this.idPartida);
 
             return result;
         }

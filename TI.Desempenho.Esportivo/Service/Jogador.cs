@@ -70,6 +70,8 @@ namespace TI.Desempenho.Esportivo.Service
             this.nome = nome;
             this.posicao = (Posicao)_posicaoFactory.Criar(posicao);
             this.camisa = camisa;
+
+            this._jogadas = new List<Jogada>();
         }
 
         public Jogador(String nome, int posicao, int camisa)
@@ -127,6 +129,16 @@ namespace TI.Desempenho.Esportivo.Service
                     relatorio.Add(jogada.idPartida, jogada.calcPontosJogada());
             }
             return relatorio;
+        }
+
+        public string listaJogadas()
+        {
+            string lista = "";
+            foreach (var jogada in _jogadas)
+            {
+                lista += jogada.ToString() + "\n";
+            }
+            return lista;
         }
     }
 }
