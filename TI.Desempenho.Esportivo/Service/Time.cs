@@ -69,6 +69,35 @@ namespace TI.Desempenho.Esportivo.Service
                 this.jogadores[numJogador] = novoJogador;
                 numJogador++;
             }
+            else 
+            {
+                var contador = 0;
+                foreach (var jogador in this.jogadores)
+                {
+                    if (jogador == null)
+                    {
+                        Jogador novoJogador = new Jogador(nome, posicao, camisa);
+                        this.jogadores[contador] = novoJogador;
+                        return;
+                    }
+                    contador++;
+                }
+            }
+        }
+
+        public void RemoverJogador(string nome)
+        {
+
+            for (int i = 0; i < this.jogadores.Length; i++)
+            {
+                if (this.jogadores[i] != null)
+                {
+                    if (nome == this.jogadores[i].nome)
+                    {
+                        jogadores[i] = null;
+                    }
+                }
+            }
         }
 
         public double PontosTotaisTime()
@@ -76,7 +105,10 @@ namespace TI.Desempenho.Esportivo.Service
             double pontosTotais = 0;
             foreach(var jogador in jogadores)
             {
-                pontosTotais += jogador.pontosTotais();
+                if (jogador != null)
+                {
+                    pontosTotais += jogador.pontosTotais();
+                }
             }
             return pontosTotais;
         }
@@ -95,41 +127,53 @@ namespace TI.Desempenho.Esportivo.Service
             var relatorio = new List<AvaliacaoJogadorModel>();
             var media = MediaPontosTime();
 
-            foreach(var jogador in _jogadores)
-            {
-                if(jogador.pontosTotais() == media)
+
+            
+                foreach (var jogador in _jogadores)
                 {
-                    relatorio.Add(new AvaliacaoJogadorModel()
-                    {
-                        nome = jogador.nome,
-                        numCamisa = jogador.camisa,
-                        nomPosicao = jogador.posicao.nomPosicao,
-                        pontos = jogador.pontosTotais(),
-                        status = "Dentro da média."
-                    });
-                }
-                else if(jogador.pontosTotais() < media)
+
+                if (jogador != null)
                 {
-                    relatorio.Add(new AvaliacaoJogadorModel()
+
+                    if (jogador.pontosTotais() == media)
                     {
-                        nome = jogador.nome,
-                        numCamisa = jogador.camisa,
-                        nomPosicao = jogador.posicao.nomPosicao,
-                        pontos = jogador.pontosTotais(),
-                        status = "Abaixo da média."
-                    });
-                }
-                else
-                {
-                    relatorio.Add(new AvaliacaoJogadorModel()
+                        relatorio.Add(new AvaliacaoJogadorModel()
+                        {
+                            nome = jogador.nome,
+                            numCamisa = jogador.camisa,
+                            nomPosicao = jogador.posicao.nomPosicao,
+                            pontos = jogador.pontosTotais(),
+                            status = "Dentro da média."
+                        });
+                    }
+
+
+
+                    if (jogador != null)
                     {
-                        nome = jogador.nome,
-                        numCamisa = jogador.camisa,
-                        nomPosicao = jogador.posicao.nomPosicao,
-                        pontos = jogador.pontosTotais(),
-                        status = "Acima da média."
-                    });
+                        relatorio.Add(new AvaliacaoJogadorModel()
+                        {
+                            nome = jogador.nome,
+                            numCamisa = jogador.camisa,
+                            nomPosicao = jogador.posicao.nomPosicao,
+                            pontos = jogador.pontosTotais(),
+                            status = "Abaixo da média."
+                        });
+                    }
+
+                    if (jogador != null)
+                    {
+                        relatorio.Add(new AvaliacaoJogadorModel()
+                        {
+                            nome = jogador.nome,
+                            numCamisa = jogador.camisa,
+                            nomPosicao = jogador.posicao.nomPosicao,
+                            pontos = jogador.pontosTotais(),
+                            status = "Acima da média."
+                        });
+                    }
                 }
+                
             }
             return relatorio;
         }
@@ -140,11 +184,15 @@ namespace TI.Desempenho.Esportivo.Service
             double maiorPontuacao = double.MinValue;
             foreach(var jogador in _jogadores)
             {
-                if(jogador.pontosTotais() > maiorPontuacao)
+                if (jogador != null)
                 {
-                    jogadorMaiorPontuacao = jogador;
-                    maiorPontuacao = jogador.pontosTotais();
+                    if (jogador.pontosTotais() > maiorPontuacao)
+                    {
+                        jogadorMaiorPontuacao = jogador;
+                        maiorPontuacao = jogador.pontosTotais();
+                    }
                 }
+                
             }
             return jogadorMaiorPontuacao;
         }
