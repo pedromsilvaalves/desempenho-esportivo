@@ -56,7 +56,6 @@ namespace TI.Desempenho.Esportivo.Service
 
         #endregion
 
-
         #region Metodos
 
         public override string ToString()

@@ -127,14 +127,10 @@ namespace TI.Desempenho.Esportivo.Service
             var relatorio = new List<AvaliacaoJogadorModel>();
             var media = MediaPontosTime();
 
-
-            
-                foreach (var jogador in _jogadores)
-                {
-
+            foreach (var jogador in _jogadores)
+            {
                 if (jogador != null)
                 {
-
                     if (jogador.pontosTotais() == media)
                     {
                         relatorio.Add(new AvaliacaoJogadorModel()
@@ -145,11 +141,8 @@ namespace TI.Desempenho.Esportivo.Service
                             pontos = jogador.pontosTotais(),
                             status = "Dentro da média."
                         });
-                    }
-
-
-
-                    if (jogador != null)
+                    } else 
+                    if (jogador.pontosTotais() < media)
                     {
                         relatorio.Add(new AvaliacaoJogadorModel()
                         {
@@ -159,9 +152,8 @@ namespace TI.Desempenho.Esportivo.Service
                             pontos = jogador.pontosTotais(),
                             status = "Abaixo da média."
                         });
-                    }
-
-                    if (jogador != null)
+                    } else
+                    if (jogador.pontosTotais() > media)
                     {
                         relatorio.Add(new AvaliacaoJogadorModel()
                         {
@@ -173,7 +165,6 @@ namespace TI.Desempenho.Esportivo.Service
                         });
                     }
                 }
-                
             }
             return relatorio;
         }
